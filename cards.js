@@ -42,5 +42,9 @@ const CARDS=[
  body:'Bu bir deneme görselidir, haber içermez. Fotoğraf alanında video oynar, çerçeve, başlık, metin ve logo sabit kalır. Videonun sesi korunur.'},
 {cat:'GÜNDEM',pos:'50% 50%',credit:'Video: Siirt İl Emniyet Müdürlüğü',photo:'',
  lines:['SİİRT’TE TEFECİLİK OPERASYONU:','6 ŞÜPHELİ GÖZALTINA ALINDI'],
- body:'Siirt Cumhuriyet Başsavcılığı koordinesinde yürütülen “tefecilik ve resmi belgede sahtecilik” soruşturmasında 3 Kasım’da eş zamanlı operasyon düzenlendi, 6 şüpheli gözaltına alındı. Aramalarda çok sayıda çek ve senet, farklı kişilere ait kredi kartları ve tapu belgeleri, pos cihazları, ajandalar, 1 ruhsatsız tabanca ve 159 fişek ele geçirildi. Soruşturma sürüyor.'}
+ body:'Siirt Cumhuriyet Başsavcılığı koordinesinde yürütülen “tefecilik ve resmi belgede sahtecilik” soruşturmasında 3 Kasım’da eş zamanlı operasyon düzenlendi, 6 şüpheli gözaltına alındı. Aramalarda çok sayıda çek ve senet, farklı kişilere ait kredi kartları ve tapu belgeleri, pos cihazları, ajandalar, 1 ruhsatsız tabanca ve 159 fişek ele geçirildi. Soruşturma sürüyor.'},
+{cat:'GÜNDEM',pos:'45% 50%',credit:'Temsili foto: Portable Antiquities Scheme / Wikimedia, CC BY-SA 2.0',
+ photo:'2026-11-20/sikke-temsili.jpg',
+ lines:['KURTALAN’DA TARİHİ ESER OPERASYONU:','1.354 SİKKE ELE GEÇİRİLDİ'],
+ body:'Siirt İl Jandarma Komutanlığı, tarihi eser niteliğindeki sikkeleri satmak için alıcı aradığı tespit edilen bir şüpheliyi Kurtalan ilçe merkezinde düzenlediği operasyonla yakaladı. Aramalarda Roma dönemine ait olduğu değerlendirilen 1.354 bronz sikke, 1 bronz küp ve 1 kilise çanı olmak üzere toplam 1.356 obje ele geçirildi. Gözaltına alınan şüpheli adli makamlara teslim edildi. Operasyon 17 Kasım’da duyuruldu.'}
 ];
