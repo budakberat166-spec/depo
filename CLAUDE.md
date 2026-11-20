@@ -79,6 +79,14 @@ node story.js 11 ./2026-11-08/story-01.png
 
 `story.js`, Playwright ve Chromium ile `story.ps1`'in yaptığını yapar. Bu ikisi bulut ortamında hazır kurulu gelir. Üretilen PNG'yi kontrol et, sonra kullanıcıya dosya olarak gönder ki telefondan indirip paylaşabilsin. Yeni kartları ve çıktıları commit'leyip depoya push et, yoksa oturum kapanınca kaybolur.
 
-Video (`video.ps1`) bulutta henüz yok. Kullanıcı mobilde video isterse bunu söyle (FFmpeg ile aynı mantık Linux'a taşınabilir).
+Video story için `video.ps1`'in karşılığı `video.js`:
 
-Zamanlanmış 2 saatlik tarama bulutta "scheduled task" olarak kurulabilir. Kullanıcı isterse saatleri sorup kur.
+```bash
+node video.js 11 ./video.mp4 ./2026-11-08/haber.mp4 6.85
+```
+
+Parametreler sırayla: kart numarası, video, çıktı, başlangıç saniyesi (isteğe bağlı, logo girişini kesmek için), MB sınırı (isteğe bağlı, varsayılan 10). FFmpeg yoksa `sudo apt-get install -y ffmpeg` ile kur. Kullanıcının mobilden yüklediği video `/root/.claude/uploads/` altında olur.
+
+## Zamanlanmış tarama (bulutta kurulu)
+
+Bulutta bir zamanlanmış görev kuruldu. Görev her gün 07.43'ten 21.43'e kadar 2 saatte bir (İstanbul saati) yeni bir oturum açıyor, haberleri tarıyor, yeni olanları listeleyip `gonderilen-haberler.txt` dosyasını güncelliyor ve depoya push ediyor. Bu görev bulutta çalıştığı için bilgisayarın ya da uygulamanın açık olması gerekmez. "İlk açılışta" bölümündeki zamanlanmış görev adımı Windows bilgisayar içindir, bulut görevi varken orada ikinci bir görev kurmadan önce kullanıcıya sor.
