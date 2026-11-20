@@ -1,0 +1,58 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75,900&family=Figtree:wght@400&display=block" rel="stylesheet">
+<style>
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#fff}
+.a{position:absolute}
+#plate{left:0;top:0;width:1080px;height:1920px}
+#photo{left:179px;top:67px;width:727px;height:915px;object-fit:cover}
+#rib{left:0;top:0}
+#cat{left:0;top:922px;height:83px;line-height:83px;color:#fff;font:900 52px/83px Archivo,sans-serif;font-stretch:75%;white-space:nowrap}
+#head{left:88px;top:0;width:915px;font-family:Archivo,sans-serif;font-weight:900;font-stretch:75%;white-space:nowrap}
+#head div{width:max-content}
+.k{color:#0c0c0c}.r{color:#d80f16}
+#body{left:118px;top:1322px;width:812px;font:400 31.5px/35.6px Figtree,sans-serif;color:#1d1d1d;white-space:pre-line}
+</style>
+<img id="plate" class="a" src="plate-final.png">
+<img id="photo" class="a">
+<svg id="rib" class="a" width="1080" height="1100"></svg>
+<div id="credit" class="a" style="right:178px;top:958px;font:400 15px/20px Figtree,sans-serif;color:#fff;background:rgba(0,0,0,.55);padding:0 8px;border-radius:3px;white-space:nowrap"></div>
+<div id="cat" class="a"></div>
+<div id="head" class="a"></div>
+<div id="body" class="a"></div>
+<script src="cards.js"></script>
+<script>
+const q=new URLSearchParams(location.search), c=CARDS[+q.get('i')||0];
+if(q.get('hole')){ // video mode: everything stays except the photo area, which becomes transparent
+  document.documentElement.style.background='transparent';document.body.style.background='transparent';
+  plate.style.clipPath="path(evenodd,'M0 0H1080V1920H0ZM179 67H906V982H179Z')";photo.style.display='none';
+}else{photo.src=c.photo;photo.style.objectPosition=c.pos||'50% 50%';}
+if(c.credit)credit.textContent=c.credit;else credit.style.display='none';
+head.innerHTML=c.lines.map((t,i)=>`<div class="${i==0?'k':'r'}">${t}</div>`).join('');
+cat.textContent=c.cat;
+document.fonts.ready.then(()=>{
+  // category ribbon grows with its label
+  const pad=36, base=332, tw=cat.getBoundingClientRect().width;
+  const w=Math.max(base,tw+pad*2+44), x0=68, y0=922, y1=1005, sl=44;
+  cat.style.left=(x0+(w-sl-tw)/2+6)+'px';
+  rib.innerHTML=`<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ee1c23"/><stop offset=".55" stop-color="#d80f16"/><stop offset="1" stop-color="#a50a10"/></linearGradient></defs>
+  <polygon points="${x0-44},${y1} ${x0},${y0} ${x0+w},${y0} ${x0+w-35},${y1}" fill="url(#g)"/>
+  <polygon points="${x0+w+4},${y0} ${x0+w+12},${y0} ${x0+w-23},${y1} ${x0+w-31},${y1}" fill="#fff"/>
+  <polygon points="${x0+w+12},${y0} ${x0+w+24},${y0} ${x0+w-11},${y1} ${x0+w-23},${y1}" fill="#d80f16"/>
+  <polygon points="${x0+w+24},${y0} ${x0+w+30},${y0} ${x0+w-5},${y1} ${x0+w-11},${y1}" fill="#fff"/>
+  <polygon points="${x0+w+32},${y0} ${x0+w+54},${y0} ${x0+w+19},${y1} ${x0+w-3},${y1}" fill="#f6b4b4" opacity=".9"/>`;
+  // headline: size down to fit, keep the 3-line layout inside the panel
+  const lines=[...head.children], n=lines.length, maxW=915;
+  const k=n>=3?0.86:1;
+  lines.forEach((el,i)=>{
+    let s=i==0?(n>=3?64:72):(n>=3?56:62);
+    el.style.fontSize=s+'px'; el.style.lineHeight='1.14';
+    while(el.getBoundingClientRect().width>maxW&&s>30){s-=1;el.style.fontSize=s+'px'}
+  });
+  const h=head.getBoundingClientRect().height, top=1036, bot=1262;
+  head.style.top=(top+(bot-top-h)/2-6)+'px';
+  body.textContent=c.body;
+  document.title='ready';
+});
+</script>
