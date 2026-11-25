@@ -74,7 +74,7 @@ const CARDS=[
 {cat:'EĞİTİM',pos:'40% 50%',credit:'',photo:'2026-11-25/foto/10.jpg',
  lines:['MİNİK ÖĞRENCİLER','112 ACİL ÇAĞRI MERKEZİ’NDE'],
  body:'Siirt 112 Acil Çağrı Merkezi, tanıtım faaliyetleri kapsamında Final Okulları’nın minik öğrencilerini ağırladı. Öğrencilere merkezin çalışmaları tanıtıldı. 112 Acil Çağrı Merkezleri; sağlık, emniyet, jandarma, itfaiye ve AFAD gibi acil hizmetlere tek numaradan ulaşılmasını sağlıyor.'},
-{cat:'SAĞLIK',pos:'50% 50%',credit:'',photo:'2026-11-25/foto/11.jpg',
+{cat:'SAĞLIK',pos:'5% 50%',credit:'',photo:'2026-11-25/foto/11.jpg',
  lines:['ŞİRVAN DEVLET HASTANESİ','BAŞHEKİME TEŞEKKÜR BELGESİ'],
  body:'Şirvan Devlet Hastanesi’nde başhekim olarak görev yapan Dr. Muaz Güzel’in görev süresi sona erdi. Siirt İl Sağlık Müdürlüğü, Güzel’e görevi boyunca sağlık hizmetlerine ve hastanenin gelişimine yaptığı katkılar için teşekkür belgesi verdi. Belgeyi Kamu Hastaneleri Hizmetleri Başkanı Uzm. Dr. İlker Uluçay ile Halk Sağlığı Hizmetleri Başkanı Uzm. Dr. Damla Taşçı Küçükşen takdim etti.'},
 {cat:'SAĞLIK',pos:'35% 50%',credit:'',photo:'2026-11-25/foto/12.jpg',
